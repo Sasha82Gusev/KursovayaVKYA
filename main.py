@@ -39,23 +39,16 @@ class YandexDisk:
 dict = {}
 list1 = []
 ftl = input('Какое количество фото надо загрузить? ')
-if ftl == 'null':
+if ftl == '':
     ftl = 5
-user_id = '17698940'  # Владелец токена
-# owner = '3590911'  # Пациент
 owner = input('Введите user_id пользователя ВК ')
 percent = 0
-YATOKEN = "AQAAAAAS8FNvAADLW6rn6rr7aUahsINUYMVbAp8"
-vkaccess_token = 'vk1.a.6Mlk_x9q1KkOnlZOArY4k1lTBx5xc46Jgas6pSBtGXE2eD_GeCWguBaLnDLSh8d413CGAgTUnDVDTS_pk1iFEW8ELgUdtpuH_EcCaMq6cbVcT8_5L-2ZeLe9etehzi3_OZ7BY42SFKHUdTmoA0Qc_r5LcGGulUyY3rygUsot082oIX17-sUG4z3m1FcL4WCe'
-ya = YandexDisk(token=YATOKEN)
-vk = VK(vkaccess_token, user_id)
-# owner = '3590911'  #Пациент
-# 6551909 Катя
-# 17698940 я
-# 2861390 Стас Версилов
-# 658873091 Игорь Логинов
-# 4113855 Пушкина
-# 3590911 Настька
+user_id = ''  # user_id владельца токена ВК
+YA_TOKEN = ""  # Токен Яндекса
+vk_access_token = ''  # Токен ВКонтакте
+ya = YandexDisk(token=YA_TOKEN)
+vk = VK(vk_access_token, user_id)
+
 
 a = vk.photos(owner)
 fotocount = a['response']['count']  # колличествоо фоток у пациента
@@ -82,4 +75,4 @@ for i in dict:
     ya.urlaa(i, dict[i])
     percent += 1
     print(str(int(100/fotocount*int(percent))), '%')  # Прогресс бар
-print('Operation complete')
+print('Загрузка завершена, загружено ',fotocount,' фото.')
