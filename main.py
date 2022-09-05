@@ -49,11 +49,10 @@ if __name__ == "__main__":
 
     config = configparser.ConfigParser()  # создаём объекта парсера
     config.read("token.ini")  # читаем конфиг
-    user_id = '17698940'  # user_id владельца токена ВК
     YA_TOKEN = config["Tokens"]["yatoken"]  # Токен Яндекса
     vk_access_token = config["Tokens"]["vktoken"]  # Токен ВКонтакте
     ya = YandexDisk(token=YA_TOKEN)
-    vk = VK(vk_access_token, user_id)
+    vk = VK(vk_access_token,'')
 
     ftl = input('Какое количество фото надо загрузить? ')
     if ftl == '':
